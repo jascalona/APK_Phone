@@ -63,9 +63,10 @@ public class Interface extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btn_buscar = new javax.swing.JButton();
         txt_buscar = new javax.swing.JTextField();
-        btnConexion = new javax.swing.JButton();
+        Open = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
+        btnConexion = new javax.swing.JButton();
         LabelPanel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         TextFooter = new javax.swing.JLabel();
@@ -91,16 +92,16 @@ public class Interface extends javax.swing.JFrame {
         });
         jPanel1.add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 220, 35));
 
-        btnConexion.setBackground(new java.awt.Color(0, 0, 102));
-        btnConexion.setForeground(new java.awt.Color(255, 255, 255));
-        btnConexion.setIcon(new javax.swing.ImageIcon("/home/jescalona/NetBeansProjects/Phone/src/main/java/images/log.png")); // NOI18N
-        btnConexion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
-        btnConexion.addActionListener(new java.awt.event.ActionListener() {
+        Open.setBackground(new java.awt.Color(0, 0, 102));
+        Open.setForeground(new java.awt.Color(255, 255, 255));
+        Open.setIcon(new javax.swing.ImageIcon("/home/jescalona/NetBeansProjects/Phone/src/main/java/images/open.png")); // NOI18N
+        Open.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
+        Open.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConexionActionPerformed(evt);
+                OpenActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConexion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 115, 38, 38));
+        jPanel1.add(Open, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 115, 38, 38));
 
         Tabla.setBackground(new java.awt.Color(204, 255, 255));
         Tabla.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -131,6 +132,17 @@ public class Interface extends javax.swing.JFrame {
         jScrollPane1.setViewportView(Tabla);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 300, 450));
+
+        btnConexion.setBackground(new java.awt.Color(0, 0, 102));
+        btnConexion.setForeground(new java.awt.Color(255, 255, 255));
+        btnConexion.setIcon(new javax.swing.ImageIcon("/home/jescalona/NetBeansProjects/Phone/src/main/java/images/log.png")); // NOI18N
+        btnConexion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
+        btnConexion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConexionActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnConexion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 115, 38, 38));
 
         LabelPanel.setBackground(new java.awt.Color(255, 255, 255));
         LabelPanel.setForeground(new java.awt.Color(255, 255, 255));
@@ -183,18 +195,23 @@ public class Interface extends javax.swing.JFrame {
         this.Ls = Ls;
     }
     
-    private void btnConexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConexionActionPerformed
-        // Redirect Login
-        Login Ls = new Login();
-        Ls.setvI(this);
-        Ls.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnConexionActionPerformed
+    private void OpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenActionPerformed
+        // Redirect Open
+       
+    }//GEN-LAST:event_OpenActionPerformed
 
     private void txt_buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscarKeyReleased
         // Search table
       //  cTabla(inputSearch.getText());
     }//GEN-LAST:event_txt_buscarKeyReleased
+
+    private void btnConexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConexionActionPerformed
+        // Redirect Log
+        Login Ls =new Login();
+        Ls.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_btnConexionActionPerformed
 
     
     
@@ -263,6 +280,7 @@ public class Interface extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelPanel;
+    private javax.swing.JButton Open;
     private javax.swing.JTable Tabla;
     private javax.swing.JLabel TextFooter;
     private javax.swing.JButton btnConexion;
