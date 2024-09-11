@@ -18,7 +18,7 @@ import Controller.Register;
 import javax.swing.JOptionPane;
 import javax.swing.ListModel;
 import xdv.com.phone.Login;
-
+import xdv.com.phone.Interface;
 
 public class Vistas extends javax.swing.JFrame {
  
@@ -33,9 +33,11 @@ public class Vistas extends javax.swing.JFrame {
     
     
     
+    
     /**
      * Creates new form test
      */
+    private String dato;
     public Vistas() {
         initComponents();
         setLocationRelativeTo(null);
@@ -46,6 +48,11 @@ public class Vistas extends javax.swing.JFrame {
       //   r.CargarTabla(Usuarios, rg);
    // }
             
+    
+    public void ImportDatos(String dato){
+        this.dato = dato;
+        jtxtNAME.setText(dato);
+    }
     
 
     /**
@@ -63,10 +70,10 @@ public class Vistas extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jtxtNAME = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jtxtGEO = new javax.swing.JLabel();
+        jtxtExtension = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         TextFooter = new javax.swing.JLabel();
         jPanelFooter = new javax.swing.JPanel();
@@ -98,9 +105,17 @@ public class Vistas extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(51, 51, 51));
 
-        jLabel1.setFont(new java.awt.Font("Bitstream Charter", 0, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Name");
+        jtxtNAME.setFont(new java.awt.Font("Bitstream Charter", 0, 18)); // NOI18N
+        jtxtNAME.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jtxtNAME.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jtxtNAMEAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -108,26 +123,24 @@ public class Vistas extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtxtNAME, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(45, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtxtNAME, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
         jPanel5.setBackground(new java.awt.Color(51, 51, 51));
 
-        jLabel5.setFont(new java.awt.Font("Bitstream Charter", 0, 12)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("GEO");
+        jtxtGEO.setFont(new java.awt.Font("Bitstream Charter", 0, 12)); // NOI18N
+        jtxtGEO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        jLabel6.setFont(new java.awt.Font("Bitstream Charter", 0, 12)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Ext");
+        jtxtExtension.setFont(new java.awt.Font("Bitstream Charter", 0, 12)); // NOI18N
+        jtxtExtension.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -136,17 +149,17 @@ public class Vistas extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(39, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtxtExtension, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxtGEO, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtxtGEO, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtxtExtension, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(9, Short.MAX_VALUE))
         );
 
@@ -227,6 +240,12 @@ public class Vistas extends javax.swing.JFrame {
       //  cTabla(inputSearch.getText());
     }//GEN-LAST:event_txt_buscarKeyReleased
 
+    private void jtxtNAMEAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jtxtNAMEAncestorAdded
+        // Selection
+
+        
+    }//GEN-LAST:event_jtxtNAMEAncestorAdded
+
     
     
     /**
@@ -270,6 +289,8 @@ public class Vistas extends javax.swing.JFrame {
             }
         });
     }
+    
+    
    
     
     
@@ -278,16 +299,16 @@ public class Vistas extends javax.swing.JFrame {
     private javax.swing.JLabel LabelPanel;
     private javax.swing.JLabel TextFooter;
     private javax.swing.Box.Filler filler1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanelFooter;
+    private javax.swing.JLabel jtxtExtension;
+    private javax.swing.JLabel jtxtGEO;
+    private javax.swing.JLabel jtxtNAME;
     private javax.swing.JTextField txt_buscar;
     // End of variables declaration//GEN-END:variables
 }

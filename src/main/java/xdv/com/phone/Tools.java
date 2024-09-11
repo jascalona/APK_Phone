@@ -300,7 +300,7 @@ public class Tools extends javax.swing.JFrame {
         try{
             int fila = Tabla.getSelectedRow();
             
-            String sql = " delete from p_list_phone_log where  id=" +Tabla.getValueAt(fila,0);
+            String sql = " delete from p_list_phone_log where  id =" +Tabla.getValueAt(fila,0);
             
             Statement st= Conn.createStatement();
             

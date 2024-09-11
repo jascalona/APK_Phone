@@ -14,7 +14,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 
-import Controller.Register;
 import javax.swing.JOptionPane;
 import javax.swing.ListModel;
 import xdv.com.phone.Login;
@@ -63,10 +62,14 @@ public class Interface extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btn_buscar = new javax.swing.JButton();
         txt_buscar = new javax.swing.JTextField();
-        Open = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
         btnConexion = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jtxtGEO = new javax.swing.JLabel();
+        jtxtExtension = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        txt_dato = new javax.swing.JLabel();
         LabelPanel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         TextFooter = new javax.swing.JLabel();
@@ -92,17 +95,6 @@ public class Interface extends javax.swing.JFrame {
         });
         jPanel1.add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 220, 35));
 
-        Open.setBackground(new java.awt.Color(0, 0, 102));
-        Open.setForeground(new java.awt.Color(255, 255, 255));
-        Open.setIcon(new javax.swing.ImageIcon("/home/jescalona/NetBeansProjects/Phone/src/main/java/images/open.png")); // NOI18N
-        Open.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
-        Open.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OpenActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Open, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 115, 38, 38));
-
         Tabla.setBackground(new java.awt.Color(204, 255, 255));
         Tabla.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Tabla.setFont(new java.awt.Font("Bitstream Charter", 0, 12)); // NOI18N
@@ -111,14 +103,14 @@ public class Interface extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Name", "Sname", "GEO", "Phone", "Extension"
+                "id", "Name", "Sname", "GEO", "Phone", "Extension"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -129,9 +121,26 @@ public class Interface extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        Tabla.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                TablaAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        Tabla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(Tabla);
+        if (Tabla.getColumnModel().getColumnCount() > 0) {
+            Tabla.getColumnModel().getColumn(0).setMinWidth(20);
+        }
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 300, 450));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, 300, 190));
 
         btnConexion.setBackground(new java.awt.Color(0, 0, 102));
         btnConexion.setForeground(new java.awt.Color(255, 255, 255));
@@ -143,6 +152,61 @@ public class Interface extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnConexion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 115, 38, 38));
+
+        jPanel5.setBackground(new java.awt.Color(153, 153, 153));
+
+        jtxtGEO.setFont(new java.awt.Font("Bitstream Charter", 0, 12)); // NOI18N
+        jtxtGEO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        jtxtExtension.setFont(new java.awt.Font("Bitstream Charter", 0, 12)); // NOI18N
+        jtxtExtension.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(39, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jtxtExtension, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxtGEO, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jtxtGEO, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtxtExtension, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(9, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, -1));
+
+        jPanel4.setBackground(new java.awt.Color(153, 153, 153));
+
+        txt_dato.setFont(new java.awt.Font("Bitstream Charter", 0, 18)); // NOI18N
+        txt_dato.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(txt_dato, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(45, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txt_dato, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
 
         LabelPanel.setBackground(new java.awt.Color(255, 255, 255));
         LabelPanel.setForeground(new java.awt.Color(255, 255, 255));
@@ -195,11 +259,6 @@ public class Interface extends javax.swing.JFrame {
         this.Ls = Ls;
     }
     
-    private void OpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenActionPerformed
-        // Redirect Open
-       
-    }//GEN-LAST:event_OpenActionPerformed
-
     private void txt_buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscarKeyReleased
         // Search table
       //  cTabla(inputSearch.getText());
@@ -212,6 +271,19 @@ public class Interface extends javax.swing.JFrame {
         this.setVisible(false);
         
     }//GEN-LAST:event_btnConexionActionPerformed
+
+    private void TablaAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_TablaAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TablaAncestorAdded
+
+    private void TablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaMouseClicked
+        // SelectionRegister
+        int selection = Tabla.getSelectedRow();
+        txt_dato.setText(String.valueOf(Tabla.getValueAt(selection, 1)));
+        jtxtGEO.setText(String.valueOf(Tabla.getValueAt(selection, 3)));
+        jtxtExtension.setText(String.valueOf(Tabla.getValueAt(selection, 5)));
+
+    }//GEN-LAST:event_TablaMouseClicked
 
     
     
@@ -258,14 +330,15 @@ public class Interface extends javax.swing.JFrame {
             Conn = cn.conectar();
             st = Conn.createStatement();
             rs = st.executeQuery(sql);
-            Object[] arreglo = new Object[5];
+            Object[] arreglo = new Object[6];
             modelo = (DefaultTableModel) Tabla.getModel();
             while (rs.next()) {
-                arreglo [0] = rs.getString("name");
-                arreglo [1] = rs.getString("surname");
-                arreglo [2] = rs.getString("GEO");
-                arreglo [3] = rs.getString("phone");
-                arreglo [4] = rs.getString("extension");
+                arreglo [0] = rs.getInt("id");
+                arreglo [1] = rs.getString("name");
+                arreglo [2] = rs.getString("surname");
+                arreglo [3] = rs.getString("GEO");
+                arreglo [4] = rs.getString("phone");
+                arreglo [5] = rs.getString("extension");
                 
                 modelo.addRow(arreglo);
             }
@@ -274,13 +347,28 @@ public class Interface extends javax.swing.JFrame {
         } catch (Exception e){
             
         }
-        
     }
+     
+     public void selectVistas(){
+         
+         try{
+            int selection = Tabla.getSelectedRow();
+            
+            txt_dato.setText(String.valueOf(Tabla.getValueAt(selection, 1)));
+            jtxtGEO.setText(String.valueOf(Tabla.getValueAt(selection, 3)));
+            jtxtExtension.setText(String.valueOf(Tabla.getValueAt(selection, 5)));
+
+             System.out.println(selection);
+             System.out.println(txt_dato);
+             
+         } catch (Exception e) {
+         
+         }
+     }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelPanel;
-    private javax.swing.JButton Open;
     private javax.swing.JTable Tabla;
     private javax.swing.JLabel TextFooter;
     private javax.swing.JButton btnConexion;
@@ -288,8 +376,13 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanelFooter;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jtxtExtension;
+    private javax.swing.JLabel jtxtGEO;
     private javax.swing.JTextField txt_buscar;
+    private javax.swing.JLabel txt_dato;
     // End of variables declaration//GEN-END:variables
 }
