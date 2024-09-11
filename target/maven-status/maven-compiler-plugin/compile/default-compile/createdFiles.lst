@@ -1,4 +1,5 @@
 xdv/com/phone/AgUser$1.class
+xdv/com/phone/Vistas$2.class
 xdv/com/phone/Interface$3.class
 xdv/com/phone/Login$6.class
 xdv/com/phone/PanelAdmin$3.class
@@ -36,10 +37,12 @@ xdv/com/phone/Phone.class
 xdv/com/phone/PanelAdmin$5.class
 xdv/com/phone/AgUser$3.class
 Controller/Register.class
+xdv/com/phone/Vistas.class
 xdv/com/phone/Tools$1.class
 xdv/com/phone/Tools$4.class
 db/LoginGetSet.class
 xdv/com/phone/AgRegister.class
+xdv/com/phone/Vistas$1.class
 xdv/com/phone/Interface.class
 xdv/com/phone/AgRegister$2.class
 xdv/com/phone/Login$5.class
