@@ -12,6 +12,7 @@ import db.LoginGetSet;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -38,7 +39,7 @@ public class PanelAdmin extends javax.swing.JFrame {
     public PanelAdmin() {
         initComponents();
         setLocationRelativeTo(null);
-        consultar();
+        query();
     }
 
     /**
@@ -61,6 +62,7 @@ public class PanelAdmin extends javax.swing.JFrame {
         btnSesion = new javax.swing.JButton();
         btnAggUser1 = new javax.swing.JButton();
         LabelPanel = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jPanelFooter = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -90,8 +92,8 @@ public class PanelAdmin extends javax.swing.JFrame {
         jPanel1.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 610, 40, 40));
 
         NameUser.setBackground(new java.awt.Color(0, 51, 102));
-        NameUser.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
-        NameUser.setForeground(new java.awt.Color(0, 0, 51));
+        NameUser.setFont(new java.awt.Font("Bitstream Charter", 0, 18)); // NOI18N
+        NameUser.setForeground(new java.awt.Color(255, 255, 255));
         NameUser.setIcon(new javax.swing.ImageIcon("/home/jescalona/NetBeansProjects/Phone/src/main/java/images/user_blues.png")); // NOI18N
         jPanel1.add(NameUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 100, 30));
 
@@ -106,19 +108,20 @@ public class PanelAdmin extends javax.swing.JFrame {
         });
         jPanel1.add(btnDrop, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 610, 40, 40));
 
+        Tabla.setFont(new java.awt.Font("Bitstream Charter", 0, 12)); // NOI18N
         Tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "name", "surname", "GEO", "phone", "extension"
+                "id", "name", "surname", "GEO", "phone", "extension"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -130,6 +133,9 @@ public class PanelAdmin extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(Tabla);
+        if (Tabla.getColumnModel().getColumnCount() > 0) {
+            Tabla.getColumnModel().getColumn(0).setPreferredWidth(30);
+        }
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 300, 380));
 
@@ -160,7 +166,22 @@ public class PanelAdmin extends javax.swing.JFrame {
         LabelPanel.setLabelFor(LabelPanel);
         jPanel1.add(LabelPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 380, 770));
 
-        jPanelFooter.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 320, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 500, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 320, 500));
+
+        jPanelFooter.setBackground(new java.awt.Color(102, 102, 102));
         jPanelFooter.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(jPanelFooter, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 600, 318, 60));
 
@@ -211,6 +232,7 @@ public class PanelAdmin extends javax.swing.JFrame {
 
     private void btnDropActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDropActionPerformed
         // btnDrop
+        dropDt();
         
     }//GEN-LAST:event_btnDropActionPerformed
 
@@ -262,21 +284,22 @@ public class PanelAdmin extends javax.swing.JFrame {
         });
     }
     
-    void consultar(){
+    void query(){
         String sql = " SELECT *FROM registerUser ";
         
         try{
             Conn = cn.conectar();
             st = Conn.createStatement();
             rs = st.executeQuery(sql);
-            Object [] arreglo = new Object [5];
+            Object [] arreglo = new Object [6];
             modelo = (DefaultTableModel) Tabla.getModel();
             while (rs.next()) {
-                arreglo [0] = rs.getString("name");
-                arreglo [1] = rs.getString("surname");
-                arreglo [2] = rs.getString("GEO");
-                arreglo [3] = rs.getString("phone");
-                arreglo [4] = rs.getString("extension");
+                arreglo [0] = rs.getInt("id");
+                arreglo [1] = rs.getString("name");
+                arreglo [2] = rs.getString("surname");
+                arreglo [3] = rs.getString("GEO");
+                arreglo [4] = rs.getString("phone");
+                arreglo [5] = rs.getString("extension");
  
                 modelo.addRow(arreglo);
             }
@@ -286,6 +309,29 @@ public class PanelAdmin extends javax.swing.JFrame {
         
         }
     
+    }
+    
+    public void dropDt(){
+        
+        try{
+            int fila = Tabla.getSelectedRow();
+            
+            String sql = " DELETE FROM registerUser WHERE id=" +Tabla.getValueAt(fila,0);
+            
+            Statement st= Conn.createStatement();
+            
+            int n=st.executeUpdate(sql);
+            
+            if (n>=0){
+                JOptionPane.showMessageDialog(null, "Se a eliminado el Registro con Exito!");
+                PanelAdmin Padmin =new PanelAdmin();
+                Padmin.setVisible(true);
+                this.setVisible(false);
+            }   
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Ha Ocurrido un error al Eliminar este Usuario!" +e.getMessage());
+        }
     }
     
 
@@ -300,6 +346,7 @@ public class PanelAdmin extends javax.swing.JFrame {
     private javax.swing.JButton btnSesion;
     private javax.swing.JTextField inputSearch;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelFooter;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

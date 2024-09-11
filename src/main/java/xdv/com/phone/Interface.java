@@ -67,6 +67,7 @@ public class Interface extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
         LabelPanel = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         TextFooter = new javax.swing.JLabel();
         jPanelFooter = new javax.swing.JPanel();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
@@ -99,14 +100,17 @@ public class Interface extends javax.swing.JFrame {
                 btnConexionActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConexion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 40, 40));
+        jPanel1.add(btnConexion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 115, 38, 38));
 
+        Tabla.setBackground(new java.awt.Color(204, 255, 255));
+        Tabla.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Tabla.setFont(new java.awt.Font("Bitstream Charter", 0, 12)); // NOI18N
         Tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "name", "surname", "GEO", "phone", "extension"
+                "Name", "Sname", "GEO", "Phone", "Extension"
             }
         ) {
             Class[] types = new Class [] {
@@ -126,13 +130,28 @@ public class Interface extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(Tabla);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 300, 400));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 300, 450));
 
         LabelPanel.setBackground(new java.awt.Color(255, 255, 255));
         LabelPanel.setForeground(new java.awt.Color(255, 255, 255));
         LabelPanel.setIcon(new javax.swing.ImageIcon("/home/jescalona/NetBeansProjects/Phone/src/main/java/images/iphone.png")); // NOI18N
         LabelPanel.setLabelFor(LabelPanel);
         jPanel1.add(LabelPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 380, 770));
+
+        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 320, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 570, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 320, 570));
 
         TextFooter.setFont(new java.awt.Font("Liberation Sans", 0, 12)); // NOI18N
         TextFooter.setForeground(new java.awt.Color(255, 255, 255));
@@ -250,6 +269,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JButton btn_buscar;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelFooter;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txt_buscar;
