@@ -71,9 +71,9 @@ public class Interface extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         txt_dato = new javax.swing.JLabel();
         LabelPanel = new javax.swing.JLabel();
+        jPanelFooter = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         TextFooter = new javax.swing.JLabel();
-        jPanelFooter = new javax.swing.JPanel();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -214,6 +214,11 @@ public class Interface extends javax.swing.JFrame {
         LabelPanel.setLabelFor(LabelPanel);
         jPanel1.add(LabelPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 380, 770));
 
+        jPanelFooter.setBackground(new java.awt.Color(51, 51, 51));
+        jPanelFooter.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelFooter.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jPanelFooter, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 610, 318, 50));
+
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -233,11 +238,6 @@ public class Interface extends javax.swing.JFrame {
         TextFooter.setForeground(new java.awt.Color(255, 255, 255));
         TextFooter.setText("PhoneList © Todos los derechos reservados. XDV");
         jPanel1.add(TextFooter, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 620, 280, 40));
-
-        jPanelFooter.setBackground(new java.awt.Color(51, 51, 51));
-        jPanelFooter.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelFooter.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(jPanelFooter, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 610, 318, 50));
         jPanel1.add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

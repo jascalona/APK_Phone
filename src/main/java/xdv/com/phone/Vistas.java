@@ -66,6 +66,7 @@ public class Vistas extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         txt_buscar = new javax.swing.JTextField();
+        btnConexion = new javax.swing.JButton();
         LabelPanel = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -91,6 +92,17 @@ public class Vistas extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 220, 35));
+
+        btnConexion.setBackground(new java.awt.Color(0, 0, 102));
+        btnConexion.setForeground(new java.awt.Color(255, 255, 255));
+        btnConexion.setIcon(new javax.swing.ImageIcon("/home/jescalona/NetBeansProjects/Phone/src/main/java/images/log.png")); // NOI18N
+        btnConexion.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
+        btnConexion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConexionActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnConexion, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 560, 38, 38));
 
         LabelPanel.setBackground(new java.awt.Color(255, 255, 255));
         LabelPanel.setForeground(new java.awt.Color(255, 255, 255));
@@ -246,6 +258,14 @@ public class Vistas extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jtxtNAMEAncestorAdded
 
+    private void btnConexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConexionActionPerformed
+        // Redirect Log
+        Login Ls =new Login();
+        Ls.setVisible(true);
+        this.setVisible(false);
+
+    }//GEN-LAST:event_btnConexionActionPerformed
+
     
     
     /**
@@ -298,6 +318,7 @@ public class Vistas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelPanel;
     private javax.swing.JLabel TextFooter;
+    private javax.swing.JButton btnConexion;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
